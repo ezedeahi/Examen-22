@@ -39,3 +39,15 @@
 
 # Mostrar el estado actual del pedido.
 # Recorrer las listas con un for para mostrar productos y precios.
+
+nombre = input ("tu nombre es? : ")
+dinero = int(input("cuanto dinero tenes? : "))
+objetos= ["agua" , "alfajor" , "tostado"]
+precios= [700 , 900 , 2200]
+print("que queres?: ")
+print ("estos son los productos que tenemos: ")
+for orden in range(len(objetos)):
+    print(f" {orden+1} {objetos[orden]} {precios[orden]}")
+
+
+
