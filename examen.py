@@ -40,46 +40,90 @@
 # Mostrar el estado actual del pedido.
 # Recorrer las listas con un for para mostrar productos y precios.
 cantidad = 0
-productos = 0
+productos = []
 
 nombre = input ("tu nombre es? : ")
 dinero = int(input("cuanto dinero tenes? : "))
+dinero_1 = dinero
 print ("hola " , nombre , " tenes " , dinero , " pesos")
-objetos= ["agua" , "alfajor" , "tostado"]
-precios= [700 , 900 , 2200]
-print("que queres?: ")
-print ("estos son los productos que tenemos: ")
-for orden in range(len(objetos)):
-    print(f" {orden+1} {objetos[orden]} {precios[orden]}")
-pedido = int(input("que numero de producto queres? : "))
-if pedido == 1:
-    if dinero < precios[0]:
-        print("no te alcanza para comprar agua")
+objetos= ["agua" , "alfajor" , "tostado" ]
+precios= [700 , 900 , 2200 ]
+
+while True:
+    print("que queres?: ")
+    print ("estos son los productos que tenemos: ")
+    for orden in range(len(objetos)):
+        print(f" {orden+1} {objetos[orden]} {precios[orden]}" )
+    print(" 4 consultar pedido")
+    print(" 5 salir")
+    pedido = int(input("que numero de producto queres? : "))
+    if pedido == 1:
+        if dinero < precios[0]:
+            print("no te alcanza para comprar agua")
+        else:
+            print("compraste agua")
+            dinero-= precios[0]
+            print(f"te quedan {dinero} pesos")
+            cantidad += 1
+            productos.append ("agua")
+    elif pedido == 2:
+        if dinero < precios[1]:
+            print("no te alcanza para comprar alfajor")
+        else:
+            print("compraste alfajor")
+            dinero-= precios[1]
+            print(f"te quedan {dinero} pesos")
+            cantidad += 1
+            productos.append ("agua")
+    elif pedido == 2:
+        if dinero < precios[1]:
+            print("no te alcanza para comprar alfajor")
+        else:
+            print("compraste alfajor")
+            dinero-= precios[1]
+            print(f"te quedan {dinero} pesos")
+            cantidad += 1
+            productos.append ("alfajor")
+    elif pedido == 3:
+        if dinero < precios[2]:
+            print("no te alcanza para comprar tostado")
+        else:
+            print("compraste tostado")
+            dinero-= precios[2]
+            print(f"te quedan {dinero} pesos")
+            cantidad += 1
+            productos.append ("tostado")
+    elif pedido == 4:
+        print("\n===== PEDIDO ACTUAL =====")
+        print("cliente: ", nombre)
+        print(f"compraste {cantidad} productos")
+        print(f"gastaste {dinero_1-dinero} pesos")
+        print(f"te quedan {dinero} pesos")
+        if cantidad == 0:
+            print("no compraste nada")
+        else:
+         print(f"los productos que compraste son ")
+         for producto in productos:
+            print("-",producto)
+    elif pedido == 5:
+            print("\n===== PEDIDO FINALIZADO =====")
+            print("cliente:", nombre)
+            print(f"compraste {cantidad} productos")
+            print(f"gastaste {dinero_1 - dinero} pesos")
+            print(f"te quedan {dinero} pesos")
+            if cantidad == 0:
+                print("no compraste nada")
+            else:
+                print("los productos que compraste son:")
+                for producto in productos:
+                    print("-", producto)
+            break
     else:
-        print("compraste agua")
-        dinero1 = dinero - precios[0]
-        print(f"te quedan {dinero1} pesos")
-        cantidad + 1
-        productos = "1"
-elif pedido == 2:
-    if dinero < precios[1]:
-        print("no te alcanza para comprar alfajor")
-    else:
-        print("compraste alfajor")
-        dinero1 = dinero - precios[1]
-        print(f"te quedan {dinero1} pesos")
-        cantidad += 1
-        productos = "2"
-elif pedido == 3:
-    if dinero < precios[2]:
-        print("no te alcanza para comprar tostado")
-    else:
-        print("compraste tostado")
-        dinero1 = dinero - precios[2]
-        print(f"te quedan {dinero1} pesos")
-        cantidad += 1
-        productos = "3"
-else:
-    print("opcion invalida")
-print(f"compraste {cantidad} producto")
-print(f"los productos que compraste son: {productos}")
+            print("opcion invalida")
+    if pedido != 4 and pedido != 5:
+       print(f"compraste {cantidad} productos")
+       print("los productos que compraste son:")
+       for producto in productos:
+        print("-", producto)
+
+
