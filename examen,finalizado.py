@@ -74,15 +74,6 @@ while True:
             dinero-= precios[1]
             print(f"te quedan {dinero} pesos")
             cantidad += 1
-            productos.append ("agua")
-    elif pedido == 2:
-        if dinero < precios[1]:
-            print("no te alcanza para comprar alfajor")
-        else:
-            print("compraste alfajor")
-            dinero-= precios[1]
-            print(f"te quedan {dinero} pesos")
-            cantidad += 1
             productos.append ("alfajor")
     elif pedido == 3:
         if dinero < precios[2]:
